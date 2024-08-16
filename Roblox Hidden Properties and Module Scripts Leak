@@ -1,0 +1,1158 @@
+--- Mini Leak is created by <Robloxleak!> we have more shit further in the future.
+
+-- Properties:
+
+DevConsole.Name = "DevConsole"
+DevConsole.Parent = game.Workspace
+
+Actions.Name = "Actions"
+Actions.Parent = DevConsole
+
+Components.Name = "Components"
+Components.Parent = DevConsole
+
+ActionBindings.Name = "ActionBindings"
+ActionBindings.Parent = Components
+
+DataStores.Name = "DataStores"
+DataStores.Parent = Components
+
+DebugVisualizations.Name = "DebugVisualizations"
+DebugVisualizations.Parent = Components
+
+Log.Name = "Log"
+Log.Parent = Components
+
+LuauHeap.Name = "LuauHeap"
+LuauHeap.Parent = Components
+
+Memory.Name = "Memory"
+Memory.Parent = Components
+
+MicroProfiler.Name = "MicroProfiler"
+MicroProfiler.Parent = Components
+
+Network.Name = "Network"
+Network.Parent = Components
+
+ScriptProfiler.Name = "ScriptProfiler"
+ScriptProfiler.Parent = Components
+
+Scripts.Name = "Scripts"
+Scripts.Parent = Components
+
+ServerJobs.Name = "ServerJobs"
+ServerJobs.Parent = Components
+
+ServerStats.Name = "ServerStats"
+ServerStats.Parent = Components
+
+MiddleWare.Name = "MiddleWare"
+MiddleWare.Parent = DevConsole
+
+Reducers.Name = "Reducers"
+Reducers.Parent = DevConsole
+
+Util.Name = "Util"
+Util.Parent = DevConsole
+
+-- Module Scripts:
+
+local fake_module_scripts = {}
+
+do -- DevConsole.Action
+	local script = Instance.new('ModuleScript', DevConsole)
+	script.Name = "Action"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ActionBindingsUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ActionBindingsUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ChangeDevConsoleSize
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ChangeDevConsoleSize"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ClientLogUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ClientLogUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ClientMemoryUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ClientMemoryUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ClientNetworkUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ClientNetworkUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ClientScriptsUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ClientScriptsUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.DataStoresUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "DataStoresUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.DebugVisualizationsUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "DebugVisualizationsUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ServerJobsUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ServerJobsUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ServerLogUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ServerLogUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ServerMemoryUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ServerMemoryUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ServerNetworkUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ServerNetworkUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ServerScriptsUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ServerScriptsUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.ServerStatsUpdateSearchFilter
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "ServerStatsUpdateSearchFilter"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetActiveTab
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetActiveTab"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetDevConsoleMinimized
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetDevConsoleMinimized"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetDevConsolePosition
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetDevConsolePosition"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetDevConsoleVisibility
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetDevConsoleVisibility"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetLuauHeapActiveSnapshot
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetLuauHeapActiveSnapshot"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetLuauHeapCompareSnapshot
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetLuauHeapCompareSnapshot"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetLuauHeapProfileTarget
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetLuauHeapProfileTarget"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetLuauHeapState
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetLuauHeapState"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetRCCProfilerState
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetRCCProfilerState"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetScriptProfilerRoot
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetScriptProfilerRoot"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetScriptProfilerState
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetScriptProfilerState"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.SetTabList
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "SetTabList"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Actions.UpdateAveragePing
+	local script = Instance.new('ModuleScript', Actions)
+	script.Name = "UpdateAveragePing"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DevConsole.CircularBuffer
+	local script = Instance.new('ModuleScript', DevConsole)
+	script.Name = "CircularBuffer"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ActionBindings.ActionBindingsChart
+	local script = Instance.new('ModuleScript', ActionBindings)
+	script.Name = "ActionBindingsChart"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ActionBindings.ActionBindingsData
+	local script = Instance.new('ModuleScript', ActionBindings)
+	script.Name = "ActionBindingsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ActionBindings.MainViewActionBindings
+	local script = Instance.new('ModuleScript', ActionBindings)
+	script.Name = "MainViewActionBindings"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.BannerButton
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "BannerButton"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.BoxButton
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "BoxButton"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.CellCheckbox
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "CellCheckbox"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.CellLabel
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "CellLabel"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.CheckBox
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "CheckBox"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.CheckBoxContainer
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "CheckBoxContainer"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.CheckBoxDropDown
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "CheckBoxDropDown"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.ClientServerButton
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "ClientServerButton"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.DataConsumer
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "DataConsumer"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.DataContext
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "DataContext"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.DataProvider
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "DataProvider"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DataStores.DataStoresChart
+	local script = Instance.new('ModuleScript', DataStores)
+	script.Name = "DataStoresChart"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DataStores.DataStoresData
+	local script = Instance.new('ModuleScript', DataStores)
+	script.Name = "DataStoresData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DataStores.MainViewDataStores
+	local script = Instance.new('ModuleScript', DataStores)
+	script.Name = "MainViewDataStores"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DebugVisualizations.DebugVisualizationsChart
+	local script = Instance.new('ModuleScript', DebugVisualizations)
+	script.Name = "DebugVisualizationsChart"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DebugVisualizations.DebugVisualizationsData
+	local script = Instance.new('ModuleScript', DebugVisualizations)
+	script.Name = "DebugVisualizationsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DebugVisualizations.DebugVisualizationsStaticContent
+	local script = Instance.new('ModuleScript', DebugVisualizations)
+	script.Name = "DebugVisualizationsStaticContent"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DebugVisualizations.MainViewDebugVisualizations
+	local script = Instance.new('ModuleScript', DebugVisualizations)
+	script.Name = "MainViewDebugVisualizations"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.DevConsoleTopBar
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "DevConsoleTopBar"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.DevConsoleWindow
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "DevConsoleWindow"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.DropDown
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "DropDown"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.FullScreenDropDownButton
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "FullScreenDropDownButton"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.HeaderButton
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "HeaderButton"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.LineGraph
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "LineGraph"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.LineGraphHoverDisplay
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "LineGraphHoverDisplay"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.LiveUpdateElement
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "LiveUpdateElement"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Log.ClientLog
+	local script = Instance.new('ModuleScript', Log)
+	script.Name = "ClientLog"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Log.DevConsoleCommandLine
+	local script = Instance.new('ModuleScript', Log)
+	script.Name = "DevConsoleCommandLine"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Log.LogData
+	local script = Instance.new('ModuleScript', Log)
+	script.Name = "LogData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Log.LogOutput
+	local script = Instance.new('ModuleScript', Log)
+	script.Name = "LogOutput"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Log.MainViewLog
+	local script = Instance.new('ModuleScript', Log)
+	script.Name = "MainViewLog"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Log.ServerLog
+	local script = Instance.new('ModuleScript', Log)
+	script.Name = "ServerLog"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.GetFFlagDevConsoleLuauHeap
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "GetFFlagDevConsoleLuauHeap"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapData
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapTypes
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapTypes"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapView
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapViewEntry
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapViewEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapViewPathEntry
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapViewPathEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapViewRefEntry
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapViewRefEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.LuauHeapViewStatEntry
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "LuauHeapViewStatEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- LuauHeap.MainViewLuauHeap
+	local script = Instance.new('ModuleScript', LuauHeap)
+	script.Name = "MainViewLuauHeap"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.ClientMemory
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "ClientMemory"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.ClientMemoryData
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "ClientMemoryData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.MainViewMemory
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "MainViewMemory"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.MemoryView
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "MemoryView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.MemoryViewEntry
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "MemoryViewEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.ServerMemory
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "ServerMemory"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Memory.ServerMemoryData
+	local script = Instance.new('ModuleScript', Memory)
+	script.Name = "ServerMemoryData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- MicroProfiler.MainViewMicroProfiler
+	local script = Instance.new('ModuleScript', MicroProfiler)
+	script.Name = "MainViewMicroProfiler"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- MicroProfiler.RCCProfilerDataCompleteListener
+	local script = Instance.new('ModuleScript', MicroProfiler)
+	script.Name = "RCCProfilerDataCompleteListener"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- MicroProfiler.ServerProfilerInterface
+	local script = Instance.new('ModuleScript', MicroProfiler)
+	script.Name = "ServerProfilerInterface"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.ClientNetwork
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "ClientNetwork"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.MainViewNetwork
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "MainViewNetwork"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.NetworkChart
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "NetworkChart"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.NetworkChartEntry
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "NetworkChartEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.NetworkData
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "NetworkData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.NetworkSummary
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "NetworkSummary"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.NetworkView
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "NetworkView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Network.ServerNetwork
+	local script = Instance.new('ModuleScript', Network)
+	script.Name = "ServerNetwork"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.MainViewScriptProfiler
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "MainViewScriptProfiler"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerDataFormatV2
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerDataFormatV2"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerExportView
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerExportView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerFunctionsView
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerFunctionsView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerFunctionViewEntry
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerFunctionViewEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerUtil
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerUtil"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerView
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ProfilerViewEntry
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ProfilerViewEntry"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.ServerProfilingData
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "ServerProfilingData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ScriptProfiler.TestData
+	local script = Instance.new('ModuleScript', ScriptProfiler)
+	script.Name = "TestData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.ScrollingTextBox
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "ScrollingTextBox"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.SearchBar
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "SearchBar"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ServerJobs.MainViewServerJobs
+	local script = Instance.new('ModuleScript', ServerJobs)
+	script.Name = "MainViewServerJobs"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ServerJobs.ServerJobsChart
+	local script = Instance.new('ModuleScript', ServerJobs)
+	script.Name = "ServerJobsChart"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ServerJobs.ServerJobsData
+	local script = Instance.new('ModuleScript', ServerJobs)
+	script.Name = "ServerJobsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ServerStats.MainViewServerStats
+	local script = Instance.new('ModuleScript', ServerStats)
+	script.Name = "MainViewServerStats"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ServerStats.ServerStatsChart
+	local script = Instance.new('ModuleScript', ServerStats)
+	script.Name = "ServerStatsChart"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- ServerStats.ServerStatsData
+	local script = Instance.new('ModuleScript', ServerStats)
+	script.Name = "ServerStatsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.TabRowButton
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "TabRowButton"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.TabRowContainer
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "TabRowContainer"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.Tooltip
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "Tooltip"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Components.UtilAndTab
+	local script = Instance.new('ModuleScript', Components)
+	script.Name = "UtilAndTab"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DevConsole.Constants
+	local script = Instance.new('ModuleScript', DevConsole)
+	script.Name = "Constants"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DevConsole.Immutable
+	local script = Instance.new('ModuleScript', DevConsole)
+	script.Name = "Immutable"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- MiddleWare.DevConsoleAnalytics
+	local script = Instance.new('ModuleScript', MiddleWare)
+	script.Name = "DevConsoleAnalytics"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.ActionBindingsData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "ActionBindingsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.DataStoresData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "DataStoresData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.DebugVisualizationsData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "DebugVisualizationsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.DevConsoleDisplayOptions
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "DevConsoleDisplayOptions"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.DevConsoleReducer
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "DevConsoleReducer"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.LogData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "LogData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.LuauHeap
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "LuauHeap"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.MainView
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "MainView"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.MemoryData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "MemoryData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.MicroProfiler
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "MicroProfiler"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.NetworkData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "NetworkData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.ScriptProfiler
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "ScriptProfiler"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.ScriptsData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "ScriptsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.ServerJobsData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "ServerJobsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Reducers.ServerStatsData
+	local script = Instance.new('ModuleScript', Reducers)
+	script.Name = "ServerStatsData"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- DevConsole.Signal
+	local script = Instance.new('ModuleScript', DevConsole)
+	script.Name = "Signal"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Util.convertTimeStamp
+	local script = Instance.new('ModuleScript', Util)
+	script.Name = "convertTimeStamp"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Util.getClientReplicator
+	local script = Instance.new('ModuleScript', Util)
+	script.Name = "getClientReplicator"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Util.maxOfTable
+	local script = Instance.new('ModuleScript', Util)
+	script.Name = "maxOfTable"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Util.minOfTable
+	local script = Instance.new('ModuleScript', Util)
+	script.Name = "minOfTable"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
+do -- Util.setMouseVisibility
+	local script = Instance.new('ModuleScript', Util)
+	script.Name = "setMouseVisibility"
+	local function module_script()
+
+	end
+	fake_module_scripts[script] = module_script
+end
