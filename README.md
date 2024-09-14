@@ -1,0 +1,2 @@
+From months ago we found Roblox hidden developer scripts, In the future from `Reverse Engineering` We would create a possible `Fe Bypass` and can make Lua scripts undetectable around winter!
+We successfully restored the scripts somewhere before revealing some small snippets to the public. We also have hidden apis, panels, and more which would possibly be revealed or on sale in about a year. (not sure)
