@@ -1,0 +1,54 @@
+-- Script by Werrrrolo <- OfficialOlddorito and killblue16
+local CoreGui = game:GetService("CoreGui")
+local watchPaths = {
+    "DevConsoleMaster.DevConsoleWindow.DevConsoleUI.MainView",
+}
+local function paththing(root, path)
+    local current = root
+    for segment in path:gmatch("[^%.]+") do
+        if current and current[segment] then
+            current = current[segment]
+        else
+            return nil
+        end
+    end
+    return current
+end
+local darefs = setmetatable({}, { _mode = "k" })
+for , path in ipairs(watchPaths) do
+    local Do_not_Sybau = paththing(CoreGui, path)
+    if Do_not_Sybau then
+        darefs[Do_not_Sybau] = path
+        print(("watching rn: %s"):format(path))
+    else
+        warn(("nothing got found ;-;: %s"):format(path))
+    end
+end
+spawn(function()
+    while true do
+        task.wait(1)
+        for Do_not_Sybau, path in pairs(darefs) do
+            if not Do_not_Sybau or not Do_not_Sybau.Parent then
+                warn(("found removal/reset at: %s"):format(path))
+                local newDo_not_Sybau = paththing(CoreGui, path)
+                if newDo_not_Sybau then
+                    darefs[newDo_not_Sybau] = path
+                    print(("restored da watch on: %s"):format(path))
+                    Do_not_Sybau = newDo_not_Sybau
+                else
+                    continue
+                end
+            end
+            pcall(function()
+                Do_not_Sybau.Visible = true
+                if Do_not_Sybau:IsA("Frame") or Do_not_Sybau:IsA("ScrollingFrame") then
+                    Do_not_Sybau.BackgroundTransparency = 0
+                end
+                if Do_not_Sybau:IsA("TextBox") then
+                    Do_not_Sybau.ClearTextOnFocus = false
+                    Do_not_Sybau.TextEditable = true
+                end
+            end)
+        end
+    end
+end)
