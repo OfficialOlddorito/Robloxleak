@@ -1,0 +1,35 @@
+-- by olddorito and killblue16
+local httpservs = game:GetService("HttpService")
+
+local function thegraphqlquery()
+	task.wait(1.2)
+	print("loading schemas m8!!")
+	task.wait(2.0)
+	local  this = httpservs:RequestAsync({
+		Url = "https://roblox.atlassian.net/gateway/api/graphql",
+		Method = "POST",
+		Headers = {
+			["Content-Type"] = "application/json"
+		},
+		Body = httpservs:JSONEncode({
+			query = [[
+                query {
+                    __schema {
+                        types {
+                            name
+                        }
+                    }
+                }
+            ]]
+		})
+	})
+
+	if  this.Success then
+		local schemainfo = httpservs:JSONDecode( this.Body)
+		print("Schema Types:", schemainfo.data.__schema.types)
+	else
+		warn("something didnt go as planned vro.",  this.StatusCode,  this.StatusMessage)
+	end
+end
+
+thegraphqlquery()
