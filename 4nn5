@@ -1,0 +1,425 @@
+--Fedora admin sucks kaboom bot is better  🥶
+
+
+print("ran")
+BLACKLISTED = {
+	--anyone who isn't able to use the bot
+}
+
+local admins = {
+	--If you are using this script add the name of your main account here, or anyone else you want to be able to use admin commands
+	"Something0dlyRandom"
+}
+
+local sounds = {}
+spamsounds = false
+
+local cmdlist = {
+	kaboom = "Grabs the cats and makes the bot walk toward the targeted player, on contact the cats will explode",
+	exterminate = "Similar to ;kaboom, however ;exterminate directly teleports to the player. This is very unreliable.",
+	getno = "Attempts to gain networkownership of the cats. ",
+	grabcats = "Teleports the cats to the targeted player.",
+	dig = "Brings the cats below the player running the command.",
+	digf = "Brings the cats infront of the player running the command.",
+	digt = "Brings the cats above the player running the command. This is untested.",
+	checkadmin = "Lists off players who are admins",
+	checkblacklist = "Lists off players who are blacklisted from using commands.",
+	cmds = "Lists off the commands. There is also ;cmds admin, which lists off commands that can only be used by the bot.",
+	credits = "Credits to the creator of the script.",
+	reset = "Kills the bot. This is an admin only command.",
+	forceleave = "Forces the bot to leave the game. This is an admin only command.",
+	blacklist = "Prevents the targeted player from running commands. This is an admin only command.",
+	whitelist = "Unblacklists the targeted player. This is an admin only command.",
+	checkrunning = "Displays the current script version. This is an admin only command.",
+	antifling = "Prevents other exploiters from flinging the bot.",
+	to = "Brings the bot to the targeted player. This is an admin only command.",
+	rejoin = "Makes the bot rejoin the game. This is an admin only command.",
+	info = "Provides information on the specified command.",
+	spamsounds = "Plays any audios that are a descendant of workspace",
+	explain = "Gives some information on the usage of the bot",
+	crash = "Crashes the bot"
+}
+
+local plr = game.Players.LocalPlayer
+table.insert(admins, plr.Name)
+local tweenservice = game:GetService("TweenService")
+ischasing = false
+digpos = nil
+skidactive = false
+silent = false
+--collision remover--
+local function noclip()
+	for _, v in pairs(workspace.Cabins:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.CanCollide = false
+		end
+	end
+end
+
+local function getplr(string)
+	local lower = string:lower()
+	for _, plar in next, game.Players:GetPlayers() do
+		if plar.Name:sub(1,#string):lower() == lower then
+			return plar
+		end
+	end
+end
+
+local function clip()
+	for _, v in pairs(workspace.Cabins:GetDescendants()) do
+		if v:IsA("BasePart") then
+			v.CanCollide = true
+		end
+	end
+end
+local function crash()
+	while true do end 
+end
+
+local function nocoli()
+	--turns off collision for the dogs
+	for _, v in pairs(workspace.muffy:GetChildren()) do
+		if v:IsA("BasePart") then
+			v.CanCollide = false
+		end
+	end
+
+	for _, v in pairs(workspace.socky:GetChildren()) do
+		if v:IsA("BasePart") then
+			v.CanCollide = false
+		end
+	end
+end
+
+--Grabs every sound in workspace
+local function getsounds()
+	for _, sound in pairs(workspace:GetDescendants()) do
+		if sound:IsA("Sound") then
+			if table.find(sounds, sound) == nil then
+				table.insert(sounds, sound)
+			end
+		end
+	end
+end
+
+local function killdogs()
+	--sets health to 100 incase client buggs the dogs--
+	workspace.muffy.Humanoid.Health = 100
+	workspace.socky.Humanoid.Health = 100
+	task.wait()
+	workspace.muffy.Humanoid.Health = 0
+	workspace.socky.Humanoid.Health = 0
+end
+
+--attempts to get networkownership--
+local function stealdogs()
+	plr.Character.HumanoidRootPart.CFrame = workspace.muffy.Torso.CFrame
+	task.wait(0.75)
+	plr.Character.HumanoidRootPart.CFrame = workspace.socky.Torso.CFrame
+	workspace.muffy.Torso.CFrame = plr.Character.HumanoidRootPart.CFrame
+	task.wait(0.75)
+	workspace.muffy.Torso.CFrame = plr.Character.Head.CFrame 
+	workspace.socky.Torso.CFrame = plr.Character.Head.CFrame
+end
+
+
+--regular commands--
+local function thecomand(msg, player)
+	if table.find(BLACKLISTED, player) then
+		print(player.." is blacklisted.")
+		return end
+	if string.find(msg, ";kaboom ") then
+		local name = string.gsub(msg, ";kaboom ", "")
+		print("name is "..name)
+		if name == "me" then name = player end
+		local victim = getplr(name)
+		if victim == plr then return end
+		if victim == nil then return end
+		ischasing = true
+		print("victim is "..victim.Name)
+		nocoli()
+		noclip()
+		local startercframe = plr.Character.HumanoidRootPart.CFrame
+		stealdogs()
+		plr.Character.HumanoidRootPart.CFrame = startercframe
+		--the important stuff--
+		 pcall( function() task.spawn(function() while plr.Character.Humanoid.Health > 10 do
+					plr.Character.Humanoid:MoveTo(victim.Character.HumanoidRootPart.Position) task.wait(0.25) end end)
+			while plr.Character.Humanoid.Health > 10 or victim.Character.Humanoid.Health > 10 or ischasing == true do
+				task.wait()
+				workspace:FindFirstChild("muffy"):FindFirstChild("Torso").CFrame = plr.Character.Head.CFrame
+				workspace:FindFirstChild("socky"):FindFirstChild("Torso").CFrame = plr.Character.Head.CFrame
+				victim.Character.HumanoidRootPart.Touched:Connect(function(hit)
+						task.wait()
+						if not workspace:FindFirstChild("muffy") or not workspace:FindFirstChild("socky") then
+							clip()
+							ischasing = false
+							return end
+						if hit.Parent == workspace:FindFirstChild("muffy") or workspace:FindFirstChild("socky") then
+							if ischasing == true then
+								killdogs()
+							end
+                            clip()
+							ischasing = false
+							return end
+				end)
+            end
+		end)
+	end
+	if string.find(msg, ";grabcats ") then
+		print("detected ;grabcats")
+		local name = string.gsub(msg, ";grabcats ", "")
+		if name == "me" then name = player end
+		local victim = getplr(name)
+		if victim == nil then return end
+		stealdogs()
+		workspace:FindFirstChild("muffy"):FindFirstChild("Torso").CFrame = victim.Character.Head.CFrame
+		workspace:FindFirstChild("socky"):FindFirstChild("Torso").CFrame = victim.Character.Head.CFrame
+	end
+	if string.match(msg, ";getno") then
+		if string.gsub(msg, ";getno", "") == "" then
+			stealdogs()
+		end
+	end               
+
+	if string.match(msg, ";dig") then
+		if string.gsub(msg, ";dig", "") == "" then
+			if ischasing then return end
+			print("dig")
+			nocoli()
+			stealdogs()
+			task.wait()
+			local digpos = game.Players:FindFirstChild(player)
+			plr.Character.HumanoidRootPart.CFrame = digpos.Character.HumanoidRootPart.CFrame
+			workspace.muffy.Torso.CFrame = plr.Character.Head.CFrame - Vector3.new(0,7,0)
+			workspace.socky.Torso.CFrame = plr.Character.Head.CFrame - Vector3.new(0,7,0)
+			task.wait(0.1)
+			killdogs()
+		end
+	end
+	if string.match(msg, ";digf") then
+		print("test1")
+		if string.gsub(msg, ";digf", "") == "" then 
+			print("test2")
+			if ischasing then return end
+			print("digf")
+			nocoli()
+			stealdogs()
+			task.wait()
+			local digpos = game.Players:FindFirstChild(player)
+			plr.Character.HumanoidRootPart.CFrame = digpos.Character.HumanoidRootPart.CFrame
+			local cframe = plr.Character.HumanoidRootPart.CFrame + Vector3.new(0, 1, 0)
+			workspace.muffy.Torso.CFrame = cframe + cframe.LookVector * 3
+			workspace.socky.Torso.CFrame = cframe + cframe.LookVector * 3 
+			task.wait(0.075)
+			killdogs()
+		end
+	end
+	if string.match(msg, ";digt") then
+		if string.gsub(msg, ";digt", "") == "" then
+			if ischasing then return end
+			print("digt")
+			nocoli()
+			stealdogs()
+			task.wait()
+			local digpos = game.Players:FindFirstChild(player)
+			plr.Character.HumanoidRootPart.CFrame = digpos.Character.HumanoidRootPart.CFrame
+			local cframe = plr.Character.Head.CFrame
+			workspace.muffy.Torso.CFrame = cframe + Vector3.new(0,6,0)
+			workspace.socky.Torso.CFrame = cframe + Vector3.new(0,6,0)
+			task.wait()
+			killdogs()
+		end
+	end
+	if string.match(msg, ";spamsounds") then
+		if string.gsub(msg, ";spamsounds", "") == "" then
+			if spamsounds == true then return end
+			spamsounds = true
+			getsounds()
+			while spamsounds == true do
+				for _, sound in pairs(sounds) do
+					sound:Play()
+				end
+				task.wait(0.5)
+			end
+		end
+	end
+	if string.match(msg, ";unspamsounds") then
+		if string.gsub(msg, ";unspamsounds", "") == "" then
+			spamsounds = false
+		end
+	end
+	if string.find(msg, ";checkadmin") then
+		if string.gsub(msg, ";checkadmin", "") == "" then
+			print(";cmds detetected")
+			game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Admins: "..table.concat(admins, ", "))
+		end
+	end
+	if string.find(msg, ";credits") then
+		if string.gsub(msg, ";credits", "") ~= "" then return end
+		print(";credits detetected")
+		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Script: Something0dlyrandom.")
+	end
+	if string.find(msg, ";checkblacklist") then
+		if string.gsub(msg, ";checkblacklist", "") == "" then
+			print(";cmds detetected")
+			game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Blacklisted: "..table.concat(BLACKLISTED, ", "))
+		end
+	end
+	if string.find(msg, ";cmds ") then
+		if string.gsub(msg, ";cmds ", "") == "admin" then
+			game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Adminonly Commands: ;reset, ;forceleave, ;blacklist (plr), ;whitelist (plr), ;checkrunning, ;to (plr), ;rejoin")                 
+		end
+	end
+	if string.find(msg, ";cmds") then
+		if string.gsub(msg, ";cmds", "") == "" then
+			game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Commands: ;kaboom (plr), ;exterminate (plr), ;getno, ;grabcats (plr), ;dig, ;digf, ;digt, ;spamsounds, ;unspamsounds, ;checkadmin, ;checkblacklist, ;cmds, ;credits, ;info (command)")
+		end
+	end
+	if string.find(msg, ";info ") then
+		local cmd = string.gsub(msg, ";info ", "")
+		if cmd == "" then
+			game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(";info gets information on the specified command. For example ;info info")
+		end
+		if cmdlist[cmd] ~= nil then
+			game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(cmdlist[cmd])
+		end
+	end
+	if string.find(msg, ";exterminate ") then
+		if ischasing then return end
+		local name = string.gsub(msg, ";exterminate ", "")
+		if name == "me" then name = player end
+		local  victim = getplr(name)
+		if victim == plr then return end
+		if victim == nil then return end
+		print("victim is "..victim.Name)
+		nocoli()
+		stealdogs()
+		plr.Character.HumanoidRootPart.CFrame = victim.Character.HumanoidRootPart.CFrame
+		workspace.muffy.Torso.CFrame = plr.Character.Head.CFrame
+		workspace.socky.Torso.CFrame = plr.Character.Head.CFrame
+		task.wait(0.1)
+		killdogs()
+	end
+end
+local function admincommand(msg)
+	if string.match(msg, ";reset") then
+		if string.gsub(msg, ";reset", "") ~= "" then return end
+		plr.Character:FindFirstChild("Humanoid").Health = 0
+        ischasing = false
+	end
+	if string.find(msg, ";blacklist ") then
+		local name = string.gsub(msg, ";blacklist ", "")
+		local victim = getplr(name)
+		if victim == nil then return end
+		table.insert(BLACKLISTED, victim.Name)
+		print("blacklisted "..victim.Name)
+	end
+	if string.find(msg, ";whitelist ") then
+		local name = string.gsub(msg, ";whitelist ", "")
+		local victim = getplr(name)
+		if victim == nil then return end
+		table.remove(BLACKLISTED, table.find(BLACKLISTED, victim.Name))
+		print("whitelisted "..victim.Name)
+	end
+	if string.match(msg, ";forceleave") then
+		if string.gsub(msg, ";forceleave", "") == "" then
+			game.Players.LocalPlayer:Kick("An admin used ;forceleave on you.")
+		end
+	end
+	if string.find(msg, ";to ") then
+		local name = string.gsub(msg, ";to ", "")
+		local victim = getplr(name)
+		if victim == nil then return end
+		plr.Character.HumanoidRootPart.CFrame = victim.Character.HumanoidRootPart.CFrame
+	end
+
+	if string.find(msg, ";checkrunning") then
+		if string.gsub(msg, ";checkrunning", "") ~= "" then return end
+		print(";cmds detetected")
+		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Kaboom Bot is currently active.")
+	end
+	if string.find(msg, ";explain") then
+		if string.gsub(msg, ";explain", "") ~= "" then return end
+		print("explaining")
+		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync("Anyone can run commands that are on ;cmds. If you want to find out more about a command then use ;info (command)")
+	end
+	if string.find(msg, ";rejoin") then
+		if string.gsub(msg, ";rejoin", "") ~= "" then return end
+		print("rejoining")
+		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId,game.JobId) 
+	end
+	if string.match(msg, ";crash") then
+		crash()
+	end
+    if string.find(msg, ";debug ") then
+        local name = string.gsub(msg, ";debug ", "")
+        local victim = getplr(name)
+        if victim == nil then print("it was nil") return end
+        print(victim.Name)
+	end
+    if string.match(msg, ";silent") then
+        silent = true
+	end
+    if string.match(msg, ";loud") then
+		silent = false
+	end
+	if string.find(msg, ";skid ") then
+		print(";skid detected")
+		if skidactive then warn("skidactive == true") return end
+		local name = string.gsub(msg, ";skid ", "")
+		local victim = getplr(name)
+		if victim == nil then return end
+		ischasing = true
+        if silent == false then
+		game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(victim.Name.." ur not cool buddy💔")
+		end
+		skidactive = true
+		while skidactive do task.wait() pcall(function()
+				if workspace:FindFirstChild("muffy") then
+					if workspace:FindFirstChild("socky") then
+						if victim.Character then
+							if victim.Character:FindFirstChild("HumanoidRootPart") then	
+								if plr.Character:FindFirstChild("HumanoidRootPart") then
+									stealdogs()
+									plr.Character.HumanoidRootPart.CFrame = victim.Character.HumanoidRootPart.CFrame
+									workspace.muffy.Torso.CFrame = plr.Character.Head.CFrame
+									workspace.socky.Torso.CFrame = plr.Character.Head.CFrame
+									task.wait(0.1)
+									killdogs()
+									task.wait(2)
+								else task.wait(2) end
+							else task.wait(2) end
+						else task.wait(2) end
+					else task.wait(1) end
+				else task.wait(1) end
+			end)
+		end
+	end
+	if string.match(msg, ";unskid") then
+		print(";unskid detected")
+		skidactive = false
+	end
+end
+--events--
+plr.Chatted:Connect(thecomand)
+game.Players.PlayerAdded:Connect(function(plar)
+	if table.find(admins, plar.Name) then
+		plar.Chatted:Connect(admincommand)
+	end
+	plar.Chatted:Connect(function(message)
+		thecomand(message, plar.Name)
+	end)  
+end)
+for _, v in pairs(game.Players:GetChildren()) do
+	print(v)
+	if table.find(admins, v.Name) then
+		v.Chatted:Connect(admincommand)
+	end
+	v.Chatted:Connect(function(message)
+		thecomand(message, v.Name)
+	end)
+end
+--needz this--
+plr.Character.Humanoid.Died:Connect(function() ischasing = false task.wait(2) clip()end)
+plr.Character.Humanoid.Seated:Connect(function() plr.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping) end)
