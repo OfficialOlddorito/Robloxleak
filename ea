@@ -1,0 +1,135 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+local Workspace = workspace
+
+local HAT_ID = 110198028542936  -- Catalog hat AssetId (numeric)
+local HAT_ID_STRING = "rbxassetid://" .. HAT_ID  -- String fallback if prop expects asset URI
+local TAMPER_INTERVAL = 0.05
+local TARGET_CHARACTER_NAME = "Something0dlyRandom"  -- From GC logs; nil for all
+
+-- Metatable hook for global env persistence (bypass getrenv patch/nil issues)
+pcall(function()
+    local mt = getrawmetatable(_G) or {}
+    local old_index = mt.__index
+    local old_newindex = mt.__newindex
+    mt.__index = function(t, k)
+        if k == "autoEquip" or k == "equipHat" then return rawget(_G, k) end  -- Persist access
+        return old_index and old_index(t, k)
+    end
+    mt.__newindex = function(t, k, v)
+        if k == "autoEquip" or k == "equipHat" then rawset(_G, k, v) end  -- Force set
+        if old_newindex then old_newindex(t, k, v) end
+    end
+    setrawmetatable(_G, mt)
+end)
+
+pcall(function()
+    local mt = getrawmetatable(game)
+    local old_nc = mt.__namecall
+    hookmetamethod(game, "__namecall", function(self, ...)
+        local method = getnamecallmethod()
+        if method == "ApplyDescription" and self:IsA("Humanoid") then
+            local args = {...}
+            local desc = args[1]
+            if typeof(desc) == "Instance" and desc:IsA("HumanoidDescription") then
+                -- Tamper desc mid-call (escape test)
+                local found = false
+                for _, child in desc:GetChildren() do
+                    if child:IsA("AccessoryDescription") then
+                        child.AssetId = HAT_ID
+                        child.AccessoryType = Enum.AccessoryType.Hat
+                        child.IsLayered = false
+                        found = true
+                    end
+                end
+                if not found then
+                    local currentHats = desc.HatAccessory
+                    desc.HatAccessory = if currentHats == "" then tostring(HAT_ID) else currentHats .. "," .. HAT_ID
+                end
+            end
+            args[2] = Enum.AssetTypeVerification.ClientOnly  -- Vuln repro
+            return old_nc(self, unpack(args))
+        end
+        return old_nc(self, ...)
+    end)
+end)
+
+local function equipHat(humanoid)
+    pcall(function()
+        local hd = humanoid:GetAppliedDescription()  -- Existing HD
+
+        local found = false
+        for _, child in hd:GetChildren() do
+            if child:IsA("AccessoryDescription") then
+                child.AssetId = HAT_ID
+                child.AccessoryType = Enum.AccessoryType.Hat
+                child.IsLayered = false
+                found = true
+            end
+        end
+
+
+        if not found then
+            local currentHats = hd.HatAccessory
+            hd.HatAccessory = if currentHats == "" then tostring(HAT_ID) else currentHats .. "," .. HAT_ID
+        end
+
+        local altDesc = Players:GetHumanoidDescriptionFromUserId(LocalPlayer.UserId)
+        altDesc.HatAccessory = tostring(HAT_ID)  -- Force add
+        humanoid:ApplyDescription(altDesc, Enum.AssetTypeVerification.ClientOnly)
+
+        print("Tamper equip on", humanoid.Parent.Name, "(alt desc test)")
+    end)
+end
+
+
+spawn(function()
+    while true do
+        pcall(function()
+            local gc = getgc(true)
+            for i = 1, #gc do
+                local obj = gc[i]
+                if typeof(obj) == "Instance" and obj:IsA("AccessoryDescription") then
+                    local hd = obj.Parent
+                    local hum = hd and hd.Parent
+                    if hum and hum:IsA("Humanoid") and (not TARGET_CHARACTER_NAME or hum.Parent.Name == TARGET_CHARACTER_NAME) then
+                        obj.AssetId = HAT_ID
+                        obj.AccessoryType = Enum.AccessoryType.Hat
+                        obj.IsLayered = false
+                        hum:ApplyDescription(hd)
+                        print("GC Tamper: Injected on", hum.Parent.Name, "@", obj:GetDebugId())
+                    end
+                end
+            end
+        end)
+        task.wait(TAMPER_INTERVAL)
+    end
+end)
+
+
+local function autoEquip()
+    local char = LocalPlayer.Character
+    if char then
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        if hum then equipHat(hum) end
+    end
+    for _, hum in Workspace:GetDescendants() do
+        if hum:IsA("Humanoid") and (not TARGET_CHARACTER_NAME or hum.Parent.Name == TARGET_CHARACTER_NAME) then
+            equipHat(hum)
+        end
+    end
+end
+
+local env = getfenv()
+rawset(env, "equipHat", equipHat)
+rawset(env, "HAT_ID", HAT_ID)
+rawset(env, "autoEquip", autoEquip)
+rawset(env, "tamperActive", true)
+_G.equipHat = equipHat
+_G.autoEquip = autoEquip
+
+RunService.Heartbeat:Connect(autoEquip)
+
+print("(getfenv/_G fallback)")
+print("trying to run ts _G.autoEquip() or env.autoEquip() for tests and for client escapes.")
